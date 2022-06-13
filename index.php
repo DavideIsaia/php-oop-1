@@ -48,7 +48,7 @@
       return $avgvote2decimal;
     }
   }
-
+// popolo gli oggetti
 $terminator = new Movie("Terminator", "1984");
 $terminator->insertGenre("Azione");
 $terminator->insertGenre("Fantascienza");
@@ -66,20 +66,22 @@ $robocop->insertVote(7);
 $robocop->insertVote(8);
 $robocop->insertVote(7);
 
+// aggiungo gli oggetti ad un array
 $catalogue = [];
 $catalogue[] = $terminator;
 $catalogue[] = $robocop;
 ?>
+<!-- stampo in pagina -->
 <h1>Movie Database</h1>
 <ul>
-    <?php foreach ($catalogue as $movie) { ?>
-        <li>
-            <h2><?php echo $movie->title; ?></h2>
-            <h3>Generi: <?php echo $movie->getGenreString(); ?></h3>
-            <h4>Uscito nell'anno <?php echo $movie->year; ?></h4>
-            <h5>Voto medio: <?php echo $movie->getAverageVote(); ?></h5>
-        </li>
-    <?php } ?>
+  <?php foreach ($catalogue as $movie) { ?>
+    <li>
+      <h2><?php echo $movie->title; ?></h2>
+      <h3>Generi: <?php echo $movie->getGenreString(); ?></h3>
+      <h4>Uscito nell'anno <?php echo $movie->year; ?></h4>
+      <h5>Voto medio: <?php echo $movie->getAverageVote(); ?></h5>
+    </li>
+  <?php } ?>
 </ul>
 </body>
 </html>
