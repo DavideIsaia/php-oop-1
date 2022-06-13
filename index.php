@@ -26,6 +26,11 @@
       $this->genres[] = $_genre;
     }
 
+    // visualizziamo l'array di generi come stringa
+    public function getGenreString() {
+      return join(", ", $this->genres);
+  }
+
     // stessa cosa per i voti
     public function insertVote($_vote) {
       $this->votes[] = $_vote;
@@ -70,9 +75,9 @@ $catalogue[] = $robocop;
     <?php foreach ($catalogue as $movie) { ?>
         <li>
             <h2><?php echo $movie->title; ?></h2>
-            <h3>Generi: <?php echo $movie->genres; ?></h3>
-            <div>Uscito nell'anno <?php echo $movie->year; ?></div>
-            <div>Voto medio: <?php echo $movie->getAverageVote(); ?></div>
+            <h3>Generi: <?php echo $movie->getGenreString(); ?></h3>
+            <h4>Uscito nell'anno <?php echo $movie->year; ?></h4>
+            <h5>Voto medio: <?php echo $movie->getAverageVote(); ?></h5>
         </li>
     <?php } ?>
 </ul>
